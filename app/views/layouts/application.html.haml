@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+%html
+    %head
+        %title Pragprog Books Online Store
+        = stylesheet_link_tag "scaffold"
+        = stylesheet_link_tag "depot"
+        = javascript_include_tag "application"
+        = csrf_meta_tag
+
+    %body#store
+        #banner
+            = image_tag("logo.png")
+            = @page_title || "Pragmatic Bookshelf"
+
+        #columns
+            #side
+
+                #cart
+                    = if !@cart.nil?
+                        = if @cart.line_items.count != 0
+                            = render(@cart)
+                %br
+                %a{ :href => "http://www...." } HOME
+                %br
+                %a{ :href => "http://www..../faq" } QUESTIONS
+                %br
+                %a{ :href => "http://www..../news" } NEWS
+                %br
+                %a{ :href => "http://www..../contact" } CONTACT
+                %br
+            #main
+                = yield
+

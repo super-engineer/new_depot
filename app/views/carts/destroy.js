@@ -1,0 +1,2 @@
+$('#cart').slideUp('slow');
+
