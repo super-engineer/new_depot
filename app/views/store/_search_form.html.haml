@@ -1,0 +1,5 @@
+.search
+  = simple_form_for :search, :url => '/users' do |f|
+    = f.text_field :book_name
+    = f.submit "search"
+

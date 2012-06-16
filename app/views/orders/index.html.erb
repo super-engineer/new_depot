@@ -1,6 +1,6 @@
 <h1>Listing orders</h1>
-
-<table>
+<div id="product_list">
+<table class="order_list">
   <tr>
     <th>Name</th>
     <th>Address</th>
@@ -24,8 +24,12 @@
 <% end %>
 </table>
 
-<br />
 
+</div>
+<div style="float:left">
 <%= link_to 'New Order', new_order_path %>
-<p><%= will_paginate @orders %></p>
+</div>
+
+<%= will_paginate @orders %>
+<div style="clear:both">
 

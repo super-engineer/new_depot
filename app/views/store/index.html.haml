@@ -1,13 +1,13 @@
-- if notice
-    %p#notice
-        = notice
-%h1 Your Pragmatic Catalog
+
 - @products.each do |product|
-    .entry
+    .entry{ :id => "entry#{product.id}"}
         = link_to (image_tag(product.image_url)), line_items_path(:product_id => product), :method => :post
         %h3= product.title
-        =sanitize product.description
         .price_line
             %span.price= number_to_currency(product.price)
             = button_to 'Add to Cart', line_items_path(:product_id => product), remote: true
+        .hidden_info{ :id => "info#{product.id}"}
+            =sanitize product.description
+#clear{:style => "clear:both"}
+=render 'javascript.html.haml'
 
