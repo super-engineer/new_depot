@@ -8,26 +8,26 @@
         = csrf_meta_tag
 
     %body#store
-        #banner
-            = image_tag("logo.png")
-            = @page_title || "Kiprosh Bookstore"
+        #wrapper
 
-        #columns
-            #side
 
-                #cart
-                    = if !@cart.nil?
-                        = if @cart.line_items.count != 0
-                            = render(@cart)
-                %br
-                %a{ :href => "http://www...." } HOME
-                %br
+            #banner
+                = image_tag("logo.png")
+                = render 'store/search_form'
+            #top-bar
+                %a{ :href => "http://www...." } HOME |
                 %a{ :href => "http://www..../faq" } QUESTIONS
-                %br
-                %a{ :href => "http://www..../news" } NEWS
-                %br
+                %a{ :href => "http://www..../news" } NEW
                 %a{ :href => "http://www..../contact" } CONTACT
-                %br
-            #main
-                = yield
+
+            #columns
+                #side
+
+                    #cart
+                        = if !@cart.nil?
+                            = if @cart.line_items.count != 0
+                                = render(@cart)
+                    %br
+                #main
+                    = yield
 
